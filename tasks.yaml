@@ -1,0 +1,8 @@
+OS: 'Linux' # Darwin, Windows
+tasks:
+  - name: 'This is a task example'
+    cmds: ['echo "Hello World!"']
+
+  - name: 'This is a task example with subtasks'
+    cmds:
+      ['echo "This is the first subtask"', 'echo "This is the second subtask"']
