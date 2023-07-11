@@ -25,19 +25,27 @@ tasks:
         'cd $HOME',
       ]
 
-  - name: 'Install zsh and oh-my-zsh'
-    cmds:
-      [
-        'sudo apt install zsh',
-        'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"',
-        'git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"/plugins/zsh-autosuggestions',
-        'git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"/plugins/zsh-syntax-highlighting',
-      ]
-
   - name: 'Install a nerd font'
     cmds:
       [
         'cd ~/.local/share/fonts && curl -fLO https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/FantasqueSansMono/Regular/FantasqueSansMNerdFontMono-Regular.ttf',
+      ]
+
+  - name: 'Install Mega'
+    cmds:
+      [
+        'curl https://mega.nz/linux/repo/Debian_11/amd64/megasync-Debian_11_amd64.deb -o mega.deb',
+        sudo apt install mega.deb,
+        rm mega.deb,
+      ]
+
+  - name: 'Install Spotify'
+    cmds: ['snap install spotify']
+
+  - name: 'Install NodeJs'
+    cmds:
+      [
+        'curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash - && sudo apt-get install -y nodejs',
       ]
 
   - name: 'Install dotfiles'
@@ -48,3 +56,15 @@ tasks:
         '/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME" stash',
         '/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME" checkout --force',
       ]
+
+  - name: 'Install zsh and oh-my-zsh'
+    cmds:
+      [
+        'sudo apt install zsh',
+        'sh -c "$(curl -fsSL https://raw.githubusercontent.com/PedroS235/ohmyzsh/master/tools/install.sh)"',
+        'git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"/plugins/zsh-autosuggestions',
+        'git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"/plugins/zsh-syntax-highlighting',
+      ]
+
+  - name: 'Start a new zsh shell'
+    cmds: ['exec zsh -l']
