@@ -28,18 +28,18 @@ tasks:
   - name: 'Install a nerd font'
     cmds:
       [
-        'mkdir -p ~/.local/share/fonts/'
-        'cd ~/.local/share/fonts', 
+        'mkdir -p ~/.local/share/fonts/',
+        'cd ~/.local/share/fonts',
         'curl -fLO https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/FantasqueSansMono/Regular/FantasqueSansMNerdFontMono-Regular.ttf',
-        'cd $HOME'
+        'cd $HOME',
       ]
 
   - name: 'Install Mega'
     cmds:
       [
-        'curl https://mega.nz/linux/repo/Debian_11/amd64/megasync-Debian_11_amd64.deb -o mega.deb',
-        'sudo apt install mega.deb',
-        'rm mega.deb'
+        'curl https://mega.nz/linux/repo/xUbuntu_22.10/amd64/megasync-xUbuntu_22.10_amd64.deb -o mega.deb',
+        'sudo apt install --fix-broken ./mega.deb',
+        'rm -rf ./mega.deb',
       ]
 
   - name: 'Install Spotify'
