@@ -17,7 +17,7 @@ class TasksExecutor:
 
             if cmd_output.returncode != 0:
                 self.logger.error(f"TASK[{id}] failed: {task_name}")
-                exit(cmd_output.returncode)
+                return
 
     def start(self):
         self.logger.info(f"Executing a total of {len(self.tasks)} TASKS...")
