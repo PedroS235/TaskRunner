@@ -1,4 +1,4 @@
-# TaskRunner (or your chosen script name)
+# TaskRunner
 
 TaskRunner is a Python script that reads tasks and terminal commands from a YAML
 file and executes them accordingly. This could be used to install default apps
